@@ -1,4 +1,4 @@
-import { Box, colors, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
 import React from "react";

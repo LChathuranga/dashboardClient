@@ -1,4 +1,3 @@
-import { Copyright } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -24,7 +23,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [rememberMe, setRememberMe] = useState(false);
-  const [login, { isLoading }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

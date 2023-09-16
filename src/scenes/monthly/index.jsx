@@ -1,8 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import Header from "components/Header";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { useGetSalesQuery } from "state/api";
-import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { ResponsiveLine } from "@nivo/line";
@@ -25,20 +24,20 @@ const Monthly = () => {
       color: theme.palette.secondary[600],
       data: [],
     };
-    Object.values(monthlyData).forEach(({ month,totalSales, totalUnits }) => {
+    Object.values(monthlyData).forEach(({ month, totalSales, totalUnits }) => {
       console.log("forEach", month);
-        totalSalesLine.data = [
-          ...totalSalesLine.data,
-          { x: month, y: totalSales },
-        ];
-        totalUnitsLine.data = [
-          ...totalUnitsLine.data,
-          { x: month, y: totalUnits },
-        ];
+      totalSalesLine.data = [
+        ...totalSalesLine.data,
+        { x: month, y: totalSales },
+      ];
+      totalUnitsLine.data = [
+        ...totalUnitsLine.data,
+        { x: month, y: totalUnits },
+      ];
     });
     const formattedData = [totalSalesLine, totalUnitsLine];
     return formattedData;
-  }, [data]);
+  }, [data, theme.palette.secondary]);
 
   return (
     <Box m="1.5rem 2.5rem">

@@ -25,15 +25,21 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       (acc, { month, totalSales, totalUnits }) => {
         const curSales = acc.sales + totalSales;
         const curUnits = acc.units + totalUnits;
-        totalSalesLine.data = [...totalSalesLine.data, { x: month, y: curSales }];
-        totalUnitsLine.data = [...totalUnitsLine.data, { x: month, y: curUnits }];
+        totalSalesLine.data = [
+          ...totalSalesLine.data,
+          { x: month, y: curSales },
+        ];
+        totalUnitsLine.data = [
+          ...totalUnitsLine.data,
+          { x: month, y: curUnits },
+        ];
 
         return { sales: curSales, units: curUnits };
       },
       { sales: 0, units: 0 }
     );
     return [[totalSalesLine], [totalUnitsLine]];
-  }, [data]);
+  }, [data, theme.palette.secondary]);
 
   if (!data || isLoading) return "Loading ...";
 
