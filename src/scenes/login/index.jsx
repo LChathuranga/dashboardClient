@@ -16,6 +16,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "state/api";
 import { setUserCredentials } from "state";
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const theme = useTheme();
@@ -34,12 +35,13 @@ const Login = () => {
         password: data.get("password"),
       }).unwrap();
       if (loggedData) {
-        toast.success("Authentication Success!");
+        Cookies.set("jwt", loggedData.token, { expires: 30 });
+        console.log(loggedData);
+        toast.success(`Authentication Success! as a ${loggedData.role}`);
         dispatch(setUserCredentials({ ...loggedData }));
         if (loggedData.role === "superadmin") {
           navigate("/dashboard");
-        }
-        else if (loggedData.role === "admin") {
+        } else if (loggedData.role === "admin") {
           navigate("/customers");
         }
       }

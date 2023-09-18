@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from 'js-cookie'; 
 
 const initialState = {
     mode: "dark",
@@ -19,6 +20,7 @@ export const globalSlice = createSlice({
         logout: (state) => {
             state.userData = null;
             localStorage.removeItem('userData');
+            Cookies.remove('jwt');
         }
     }
 })
