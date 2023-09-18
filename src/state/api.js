@@ -1,15 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import Cookies from 'js-cookie'; 
+import Cookies from 'js-cookie';
 
 const token = Cookies.get('jwt');
 export const api = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL, credentials: 'include' }),
-    credentials: 'include',
-    onQueryUpdated: (options) => {
-        if (token) {
-            options.headers['Authorization'] = `Bearer ${token}`;
-        }
-    },
+    baseQuery: fetchBaseQuery({
+        baseUrl: process.env.REACT_APP_BASE_URL,
+        prepareHeaders: (headers, { getState }) => {
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`)
+            }
+            return headers
+        },
+    }),
     reducerPath: "adminApi",
     tagTypes: ["User", "Products", "Customers", "Transactions, Geography, Sales, Performance, Dashboard"],
     endpoints: (build) => ({
