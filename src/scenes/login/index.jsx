@@ -35,7 +35,7 @@ const Login = () => {
         password: data.get("password"),
       }).unwrap();
       if (loggedData) {
-        Cookies.set("jwt", loggedData.token, { expires: 30, secure: true });
+        Cookies.set("jwt", loggedData.token, { expires: 30, secure: true, httpOnly: true });
         console.log(loggedData);
         toast.success(`Authentication Success! as a ${loggedData.role}`);
         dispatch(setUserCredentials({ ...loggedData }));
