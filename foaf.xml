@@ -6,9 +6,9 @@
   <foaf:PersonalProfileDocument rdf:about="">
     <foaf:name>Lahiru Chathuranga</foaf:name>
     <foaf:mbox rdf:resource="mailto:lahiruchathuranga19981214@gmail.com@email.com"/>
-    <foaf:homepage rdf:resource="https://lchathuranga.github.io/mapping_game_react/"/>
+    <foaf:homepage rdf:resource="https://dashboardclient-0iwq.onrender.com/login"/>
     <foaf:nick>LChathu</foaf:nick>
-    <foaf:depiction rdf:resource="https://lchathuranga.github.io/mapping_game_react/your_image.jpg" />
+    <foaf:depiction rdf:resource="https://dashboardclient-0iwq.onrender.com/login/your_image.jpg" />
     <foaf:interest>
         <rdf:Description rdf:about="http://www.wikimedia.org">
             <rdfs:label>Wikimedia</rdfs:label>
